@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Concrete Strength Predictor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Concrete Strength Predictor</h1>
+        <p class="description">Enter the concrete mixture parameters to predict its compressive strength</p>
+        
+        <form id="prediction-form">
+            <div class="input-group">
+                <label for="Cement">Cement (kg/m³):</label>
+                <input type="number" id="Cement" name="Cement" required step="0.1" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="BlastFurnaceSlag">Blast Furnace Slag (kg/m³):</label>
+                <input type="number" id="BlastFurnaceSlag" name="BlastFurnaceSlag" required step="0.1" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="FlyAsh">Fly Ash (kg/m³):</label>
+                <input type="number" id="FlyAsh" name="FlyAsh" required step="0.1" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="Water">Water (kg/m³):</label>
+                <input type="number" id="Water" name="Water" required step="0.1" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="Superplasticizer">Superplasticizer (kg/m³):</label>
+                <input type="number" id="Superplasticizer" name="Superplasticizer" required step="0.1" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="CoarseAggregate">Coarse Aggregate (kg/m³):</label>
+                <input type="number" id="CoarseAggregate" name="CoarseAggregate" required step="0.1" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="FineAggregate">Fine Aggregate (kg/m³):</label>
+                <input type="number" id="FineAggregate" name="FineAggregate" required step="0.1" min="0">
+            </div>
+
+            <div class="input-group">
+                <label for="Age">Age (days):</label>
+                <input type="number" id="Age" name="Age" required step="1" min="1">
+            </div>
+
+            <button type="submit" class="predict-button">Predict Strength</button>
+        </form>
+
+        <div id="result" class="result-container hidden">
+            <h2>Predicted Compressive Strength:</h2>
+            <p id="prediction-value">-- MPa</p>
+        </div>
+
+        <div id="error-message" class="error-message hidden"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
